@@ -11,7 +11,7 @@ function gingerJson pJson
          case "{"
             if tEscape is false then
                if (tComma is true and tColon is false) or \
-                     (tJArray is true and tColon is false)  then 
+                     (tJArray is true and tColon is false)  then
                   put tabCount(tLevel) after tPretty
                   put false into tComma
                end if
@@ -31,10 +31,10 @@ function gingerJson pJson
                put "}" after tPretty
                put false into tEscape
             end if
-            break	
+            break
          case "["
             if tEscape is false then
-               if tComma is true and tColon is false then 
+               if tComma is true and tColon is false then
                   put tabCount(tLevel) after tPretty
                   put false into tComma
                end if
@@ -55,7 +55,7 @@ function gingerJson pJson
                put "]" after tPretty
                put false into tEscape
             end if
-            break	
+            break
          case colon
             if tEscape is false then put true into tColon
             put colon after tPretty
@@ -72,21 +72,22 @@ function gingerJson pJson
                put comma after tPretty
                put false into tEscape
             end if
-            break	
+            break
          default
             put tChar after tPretty
             put false into tColon
-      end switch		
+      end switch
       if tLevel > tMaxLevel then put tLevel into tMaxLevel
    end repeat
-   
+
    repeat with x=1 to tMaxLevel
       replace cr&tabCount(x)&cr with cr in tPretty
    end repeat
    return tPretty
 end gingerJson
-	 
+
 function tabCount pCount
+   local tReturn
    repeat with x = 1 to pCount
       put tab after tReturn
    end repeat
