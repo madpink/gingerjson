@@ -2,7 +2,7 @@ function gingerJson pJson
    local tLevel = 0
    local tMaxLevel = 0
    put true into tComma
-   put false into tEscape
+   put true into tEscape
    put false into tColon
    put false into tJArray
    put empty into tPretty
