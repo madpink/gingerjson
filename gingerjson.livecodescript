@@ -87,6 +87,7 @@ function gingerJson pJson
 end gingerJson
 
 function tabCount pCount
+   local tReturn
    repeat with x = 1 to pCount
       put tab after tReturn
    end repeat
